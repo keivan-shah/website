@@ -5,6 +5,8 @@ theme = "hello-friend-ng"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 
+googleAnalytics = "UA-151875580-1"
+
 enableRobotsTXT = true
 enableGitInfo   = false
 enableEmoji     = true
