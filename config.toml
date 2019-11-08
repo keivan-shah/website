@@ -1,0 +1,71 @@
+baseurl = "/"
+languageCode = "en-us"
+theme = "hello-friend-ng"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+enableRobotsTXT = true
+enableGitInfo   = false
+enableEmoji     = true
+disableRSS     = false
+disableSitemap = false
+
+[author]
+  name = "Keivan Shah"
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "02-01-2006"
+  dateformNumTime = "02-01-2006 15:04 -0700"
+
+  # Metadata mostly used in document's head
+  description = "Homepage and blog by Keivan Shah"
+  keywords = "homepage, blog, programming"
+  images = [""]
+
+  # Directory name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # Default theme "light" or "dark"
+  defaultTheme = "dark"
+
+  # Social icons
+  [[params.social]]
+    name = "email"
+    url  = "mailto:keivan.shah@gmail.com"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/keivan-shah/"
+
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/keivan-shah"
+
+[languages]
+  [languages.en]
+    title = "Keivan Shah"
+    subtitle = ""
+    keywords = ""
+    copyright = ""
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "keivan-shah"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+# And you can even create generic menu
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "/posts"
