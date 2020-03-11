@@ -19,7 +19,7 @@ Today I came across a new term: [L-System](https://en.wikipedia.org/wiki/L-syste
 {{< image src="/img/lsystem_tree.png" alt="L-System (FF[++F[-F]+F][F[+F]-F][--F[+F]-F])" position="center" style="border-radius: 8px; width: 300px" >}}
 This image was created with help of L-System and it's visualization. It can also be used to model far more complicated tree structures. If you are interested you can checkout how I made this image [here](https://keivan.tech/L-System/) and the code for the same can be found [here](https://github.com/keivan-shah/L-System).
 
-From what I understood the Grammar or rules that define the L-System are very simple. It is kind of like [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar) that people study in [Theory Of Computation](https://en.wikipedia.org/wiki/Theory_of_computation) or similar courses taught in Computer Science(Actual not only kind of, L-Systems are a strict subset of formal grammar). But instead of applying one rule/production at a time, we apply as many rules as possible in parallel. Hence L-Systems are also called `Parallel Rewriting Systems`. But the rules and generated strings by itself are not that interesting, it's when we apply some kind of transformation to convert these generated strings into geometric structures, things start getting interesting!
+From what I understood the Grammar or rules that define the L-System are very simple. It is kind of like [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar) that people study in [Theory Of Computation](https://en.wikipedia.org/wiki/Theory_of_computation) or similar courses taught in Computer Science(Actual not only kind of, L-Systems are a strict subset of formal grammar). But instead of applying one rule/production at a time, we apply as many rules as possible in parallel. Hence L-Systems are also called `Parallel Rewriting Systems`. But the rules and generated strings by itself are not that interesting, it's when we apply some kind of transformation to convert these generated strings into geometric structures, things start getting interesting! For now, I don't want to dive into the depths for formal grammar it's relation with L-Sytems, maybe in the future? ¯\\_(ツ)_/¯
 
 (**Note**: If you don't understand what I just said, don't worry even I did not understand them before I was forced to go through the courses as part of my curriculum :P, But rest assured it's easy to understand!)
 
@@ -27,7 +27,7 @@ From what I understood the Grammar or rules that define the L-System are very si
 
 Lets now start by defining some terms.
 
-`Alphabets`: The set of characters we will use in our string. Some of them can be replaced by others via the rules and hece called `variables` and some of them cannot be hence called `constant` (or `terminal`). Examples we can use any character in the English alphabet like "A" or "B" or even some other fancy characters like "[" or "α".
+`Alphabets`: The set of characters we will use in our string. Some of them can be replaced by others via the rules and hence called `variables` and some of them cannot be hence called `constant` (or `terminal`). Examples we can use any character in the English alphabet like "A" or "B" or even some other fancy characters like "[" or "α".
 
 `Axiom`: Fancy way of saying a starting string! It's just a string made of the characters defined in our alphabet. Example: "A"
 
@@ -99,7 +99,7 @@ Try creating some visualizations by writing your own rules [here](https://keivan
 
 The above link does create some cool looking but it's not that fun to create visualizations by hand is it? So what if there was an automated visualization with randomly generated rulesets?
 
-This is the [link](https://ehrenjn.github.io/LSystems/lsystems.html) you are looking for! It looks really cool and makes you remember the old-school Desktop Wallpapers that people used to have.
+This is the [link](https://ehrenjn.github.io/LSystems/lsystems.html) you are looking for! It looks cool and makes you remember the old-school Desktop Wallpapers that people used to have.
 
 For now, this is where I leave you. I will try to update this post as and when I explore more into the world of `L-Systems`
 
