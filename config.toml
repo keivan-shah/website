@@ -5,7 +5,8 @@ theme = "hello-friend-ng"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 
-googleAnalytics = "UA-151875580-1"
+# Disabling Analytics
+# googleAnalytics = "UA-151875580-1"
 
 enableRobotsTXT = true
 enableGitInfo   = false
@@ -15,6 +16,10 @@ disableSitemap = false
 
 [author]
   name = "Keivan Shah"
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -31,6 +36,15 @@ disableSitemap = false
   contentTypeName = "posts"
   # Default theme "light" or "dark"
   defaultTheme = "dark"
+
+  [params.footer]
+    trademark = true
+    rss = true
+    copyright = true
+    author = true
+
+    topText = []
+    bottomText = []
 
   # Social icons
   [[params.social]]
