@@ -3,7 +3,7 @@ name: Github Pages
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - master  # Set a branch to deploy
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+        with:
+            submodules: recursive  # Fetch the theme
+            fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -27,7 +31,7 @@ jobs:
           personal_token: ${{ secrets.WEBSITE_GITHUB_TOKEN }}
           external_repository: keivan-shah/keivan-shah.github.io
           publish_dir: ./
-          keep_files: true
+          keep_files: false
           user_name: keivan-shah
           user_email: keivan-shah@users.noreply.github.com 
           publish_branch: master
