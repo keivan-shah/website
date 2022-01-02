@@ -6,6 +6,6 @@ aliases = ["about-me","about-keivan","contact"]
   name = "Keivan Shah"
 +++
 
-Hi, I'm *Keivan Shah*. A curious engineer trying to make his living working as a Software Developer! 
+Hey, *Keivan Shah* here. A curious engineer trying to make his living working as a Software Developer! Currently I am working as a [HFT](https://en.wikipedia.org/wiki/High-frequency_trading) Developer @ [slf.ai](https://slf.ai/)
 
 Thanks for stopping by my website! Currently I am not sure what I intend to do with this website but hopefully I will figure it out someday :D

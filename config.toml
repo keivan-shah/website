@@ -36,11 +36,12 @@ disableSitemap = false
   contentTypeName = "posts"
   # Default theme "light" or "dark"
   defaultTheme = "dark"
+  enableThemeToggle = true
 
   [params.footer]
     trademark = true
     rss = true
-    copyright = true
+    copyright = false
     author = true
 
     topText = []
@@ -58,6 +59,10 @@ disableSitemap = false
   [[params.social]]
     name = "linkedin"
     url  = "https://www.linkedin.com/in/keivan-shah"
+
+  [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/keivan_shah"
 
 [languages]
   [languages.en]

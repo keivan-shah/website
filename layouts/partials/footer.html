@@ -7,8 +7,9 @@
     {{if or (.Site.Params.footer.trademark) (.Site.Params.footer.author) (.Site.Params.footer.copyright) (.Site.Params.footer.rss) (.Site.Params.footer.topText) }}
     <div class="footer__inner">
         <div class="footer__content">
-            {{ if .Site.Params.footer.trademark }}<span>{{ now.Format "2006" }}</span>{{ end }}
+            {{ if .Site.Params.footer.trademark }}<span>&copy; {{ now.Format "2006" }}</span>{{ end }}
             {{ if .Site.Params.footer.author }}<span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>{{ end }}
+            {{ if .Site.Params.footer.copyright }}<span>{{ .Site.Copyright| safeHTML }}</span>{{ end }}
             {{ if .Site.Params.footer.rss }}<span><a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>{{ end }}
             {{ range .Site.Params.footer.topText }}<span>{{ . | safeHTML}}</span>{{ end }}
         </div>
@@ -25,49 +26,57 @@
 
 <script module>
     // Hello source-code explorer! Hope you are having a good day :D
+    // My attempt to make my website interesting :P, randomly showing some interesting quotes and one-liners that I find interesting
     const quotes = [
+    // Some great lines from the famous UNIX program fortune + Some Quotes I like
     "You will outgrow your usefulness.",
     "You are number 6! Who is number one?",
-    "Q: What's tiny and yellow and very, very, dangerous? A: A canary with the super-user password.",
-    "You are as I am with You.",
     "Your motives for doing whatever good deed you may have in mind will be misinterpreted by somebody.",
     "Are you sure the back door is locked?",
     "You get along very well with everyone except animals and people.",
-    "Best of all is never to have been born. Second best is to die soon.",
-    "Make a wish, it might come true.",
     "You are currently going through a difficult transition period called `Life`",
     "You are confused; but this is your normal state.",
     "Expect the worst, it's the least you can do.",
-    "You'll never see all the places, or read all the books, but fortunately, they're not all recommended.",
     "Try to relax and enjoy the crisis.",
     "Beware there is someone behind you.",
     "Don't Worry, Be Happy.",
-    "You'd like to do it instantaneously, but that's too slow.",
-    "You can rent this space for only $5 a month. :D",
-    "We do not follow maps to buried treasure, and X never, ever marks the spot.",
     "You cannot achieve the impossible without attempting the absurd.",
     "What you are is what you have been. What you'll be is what you do now. ― Buddha",
-    "Fine day to work off excess energy. Steal something heavy.",
     "Avoid reality at all costs.",
+    "It is a miracle that curiosity survives formal education. - Albert Einstein",
+    "Today is the tomorrow you worried about yesterday.",
+
+    // Tales of a programmer
     "Cogito ergo doleo. (I think, therefore I am depressed.)",
     "Brain fried -- core dumped",
+    "There's a bug somewhere in your code.",
+    "In order to understand recursion, one must first understand recursion.",
+    "Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.",
+    "“The most disastrous thing that you can ever learn is your first programming language.” ― Alan Kay",
+    "You're bound to be unhappy if you optimize everything. - Donald E. Knuth",
+    "Deliver yesterday, code today, think tomorrow.",
+    "Linux is only free if your time has no value.",
+
+    // Quotes from movies/books I like
+    "The Answer to the Ultimate Question of Life, the Universe, and Everything is 42",
+    "“Don't Panic.”",
+    "May the Force be with you.",
+    "We do not follow maps to buried treasure, and X never, ever marks the spot. ― Indiana Jones",
+    "\"Excellent! I cried. \"Elementary,\" said he.",
+    "“Just keep swimming.”",
+    "“It’s not who I am underneath, but what I do that defines me.",
+    "“Get busy living, or get busy dying.”",
+    "“Try not. Do—or do not. There is no try.” ― Yoda",
+    "“I Love You 3000“",
+
+    // Cool programming one-liners
     ":(){ :|:& };:",
     ">>>import this",
-    "Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.",
-    "In order to understand recursion, one must first understand recursion.",
-    "There's a bug somewhere in your code.",
+    "There are 10 types of people in this world, those who understand binary and those who dont",
     "Q. How many programmers does it take to change a light bulb?\nA. None. It's a hardware problem.",
     "“Before software can be reusable it first has to be usable.”",
-    "“Experience is the name everyone gives to their mistakes.” – Oscar Wilde",
-    "“The most disastrous thing that you can ever learn is your first programming language.” ― Alan Kay",
     "A computer program does what you tell it to do, not what you want it to do.",
     "God is real, unless declared integer.",
-    "Linux is only free if your time has no value.",
-    "Deliver yesterday, code today, think tomorrow.",
-    "It is a miracle that curiosity survives formal education. - Albert Einstein",
-    "You're bound to be unhappy if you optimize everything. - Donald E. Knuth",
-    "“Don't Panic.”",
-    "42"
     ];
 
     const el = document.getElementById("quote");

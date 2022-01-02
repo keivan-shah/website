@@ -2,6 +2,7 @@
 author:
   name: "Keivan Shah"
 date: 2020-03-07
+lastmod: 2022-01-02
 linktitle: L-System
 type:
   - post
@@ -16,10 +17,12 @@ series:
 
 Today I came across a new term: [L-System](https://en.wikipedia.org/wiki/L-system) and I found it quite fascinating. The idea that simple rules can lead to the formation of complex structures that might be used to model tree and organism growth and also generate [fractals](https://en.wikipedia.org/wiki/Fractal#Introduction) is intriguing to me.
 
-{{< image src="/img/lsystem_tree.png" alt="L-System (FF[++F[-F]+F][F[+F]-F][--F[+F]-F])" position="center" style="border-radius: 8px; width: 300px" >}}
-This image was created with help of L-System and it's visualization. It can also be used to model far more complicated tree structures. If you are interested you can checkout how I made this image [here](https://keivan.tech/L-System/) and the code for the same can be found [here](https://github.com/keivan-shah/L-System).
 
-From what I understood the Grammar or rules that define the L-System are very simple. It is kind of like [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar) that people study in [Theory Of Computation](https://en.wikipedia.org/wiki/Theory_of_computation) or similar courses taught in Computer Science(Actual not only kind of, L-Systems are a strict subset of formal grammar). But instead of applying one rule/production at a time, we apply as many rules as possible in parallel. Hence L-Systems are also called `Parallel Rewriting Systems`. But the rules and generated strings by itself are not that interesting, it's when we apply some kind of transformation to convert these generated strings into geometric structures, things start getting interesting! For now, I don't want to dive into the depths for formal grammar it's relation with L-Sytems, maybe in the future? ¯\\_(ツ)_/¯
+[{{< image src="/img/lsystem_tree.png" alt="L-System (FF[++F[-F]+F][F[+F]-F][--F[+F]-F])" position="center" style="border-radius: 8px; width: 300px" >}}](/L-System/)
+
+This image was created with help of L-System and it's visualization. It can also be used to model far more complicated tree structures. If you are interested you can checkout how I created this image **[here](/L-System/)** and the code for the same can be found [here](https://github.com/keivan-shah/L-System).
+
+From what I understood, the Grammar or rules that define the L-System are very simple. It is kind of like [formal grammar](https://en.wikipedia.org/wiki/Formal_grammar) that people study in [Theory Of Computation](https://en.wikipedia.org/wiki/Theory_of_computation) or similar courses taught in Computer Science (Actually, not only kind of, L-Systems are a strict subset of formal grammar). But instead of applying one rule/production at a time, we apply as many rules as possible in parallel. Hence L-Systems are also called `Parallel Rewriting Systems`. But the rules and generated strings by itself are not that interesting, it's when we apply some kind of transformation to convert these generated strings into geometric structures, things start getting interesting! For now, I don't want to dive into the depths of formal grammar and it's relation with L-Sytems, maybe in the future? 🤷
 
 (**Note**: If you don't understand what I just said, don't worry even I did not understand them before I was forced to go through the courses as part of my curriculum :P, But rest assured it's easy to understand!)
 
@@ -95,7 +98,7 @@ Apart from these, any other instructions are ignored.
 You can come up with more complex instructions but for now, these alone should suffice.
 
 With just these instructions you can make some complex structures. Don't Believe me?
-Try creating some visualizations by writing your own rules [here](https://keivan.tech/L-System/). You can also explore the code behind this [here](https://github.com/keivan-shah/L-System).
+Try creating some visualizations by writing your own rules **[here](/L-System/)**. You can also explore the code behind this [here](https://github.com/keivan-shah/L-System).
 
 The above link does create some cool looking but it's not that fun to create visualizations by hand is it? So what if there was an automated visualization with randomly generated rulesets?
 
