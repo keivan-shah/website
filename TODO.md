@@ -8,4 +8,5 @@ Here are some of the topics that I wish to explore and share if possible:
 - Pi-Hole?
 - ssh-tunnelling
 - pwnagotchi
+- BadUSB
 ...
