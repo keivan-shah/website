@@ -91,15 +91,7 @@
             let nykaa_url = "https://www.nykaa.com/nyk/aggregator-gludo/api/search.list?platform=website"
 
             async function fetchAsync (url) {
-                let response = await fetch(url, {
-                    method: "GET",
-                    mode: "cors",
-                    credentials: "omit",
-                    headers: {
-                        "Content-Type": "application/json",
-                        },
-                    redirect: "follow", // manual, *follow, error
-                });
+                let response = await fetch(url);
                 let data = await response.json();
                 return data;
             }
