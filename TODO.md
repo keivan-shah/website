@@ -9,4 +9,6 @@ Here are some of the topics that I wish to explore and share if possible:
 - ssh-tunnelling
 - pwnagotchi
 - BadUSB
+- [Nykaa downloader](static/tools/nykaa.html)
+- A bunch of web based simple utilities/tools: PDF pass remove, auto decrypt text, QR utilities
 ...

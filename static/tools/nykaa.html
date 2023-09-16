@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nykaa Download</title>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+            crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    Nykaa Data Downloader
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form id="form">
+                        <div class="input-group rounded">
+                            <input type="text" class="form-control rounded" placeholder="Enter Search Term" id="search" aria-label="Search" aria-describedby="search-addon" />
+                            <button class="input-group-text border-0 btn btn-primary" id="search-addon" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <small class="mt-5">
+                    <b>Note:</b> This tools downloads all data for the products listed when you search for a term on <a href="nykaa.com">Nykaa</a>. Type the keyword/search term you want to download data for and then press enter. A file should be automatically downloaded in a few seconds.
+                </small>
+            </div>
+        </div>
+
+        
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="startToast" class="toast" role="alert" aria-live="alert" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Nykaa Data Download</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Started fetching data...
+                </div>
+            </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="doneToast" class="toast" role="alert" aria-live="alert" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Nykaa Data Download</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Done Downloading!
+                </div>
+            </div>
+        </div>
+            
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script>
+            let search_term = "biotin gummies";
+
+            let nykaa_url = "https://www.nykaa.com/nyk/aggregator-gludo/api/search.list?app_version=7003&filter_format=v2&platform=website"
+
+            async function fetchAsync (url) {
+                let response = await fetch(url);
+                let data = await response.json();
+                return data;
+            }
+
+            async function getAllData(search_url) 
+            {
+                let csvContent = "data:text/csv;charset=utf-8,";
+                let types = ["name","id","price","final_price","discount","quantity","rating","rating_count","offers","featured","early_access","flash_sale","is_backorder","pro_flag","pack_size","sku"];
+                csvContent += types.join(",") + ",popularity,brand_name";
+
+                let start = 0, total = 0;
+                do
+                {
+                    csvContent += "\n";
+                    let data = await fetchAsync(search_url + "&from=" + start);
+                    csvContent += data.response.products
+                                    .filter(a => "tracking_metadata" in a)
+                                    .map(product => 
+                                            (types.map(type => 
+                                                String(product[type]).replaceAll(",", ".")).concat(product["tracking_metadata"]["popularity"], (product["brand_name"] || ["NA"]).join("."))).join(","))
+                                    .join("\n");
+                    total = data.response.total_found;
+                    start += data.response.products.length;
+                }
+                while (start < total);
+                return csvContent;
+            }
+            
+            $(document).ready(async function () {
+                $("#form").submit(async function(e) {
+                    e.preventDefault();
+                    $("#doneToast").hide();
+                    $("#startToast").show();
+                    let search_term = $("#search").val();
+                    console.log("Got search term: ", search_term);
+                    if (search_term.length == 0)
+                        return;
+                    let search_url = nykaa_url + "&search=" + search_term;
+                    
+                    let content = await getAllData(search_url);
+                    let encodedUri = encodeURI(content);
+                    let link = document.createElement("a");
+                    link.setAttribute("href", encodedUri);
+                    link.setAttribute("download", "nykaa_" + search_term.replace(" ", "_") + "_data.csv");
+                    document.body.appendChild(link); // Required for FF
+                    link.click();
+                    document.body.removeChild(link);
+                    $("#startToast").hide();
+                    $("#doneToast").show();
+                });
+            });
+
+            window.onload = (event) => {
+                const toastElList = document.querySelectorAll('.toast');
+                const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));
+            }
+        </script>
+    </body>
+</html>
