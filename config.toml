@@ -14,10 +14,8 @@ enableEmoji     = true
 disableRSS     = false
 disableSitemap = false
 
-[author]
-  name = "Keivan Shah"
-
 [taxonomies]
+  author = "Keivan Shah"
   tag      = "tags"
   category = "categories"
 
@@ -62,7 +60,7 @@ disableSitemap = false
 
   [[params.social]]
     name = "twitter"
-    url  = "https://twitter.com/keivan_shah"
+    url  = "https://x.com/keivan_shah"
 
 [languages]
   [languages.en]

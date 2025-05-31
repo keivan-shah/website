@@ -1,7 +1,7 @@
 # My Website
 An attempt at making my website, which should be deployed [here](https://keivan-shah.github.io). I am making use of [Hugo](https://gohugo.io/) with the theme [Hello Friend NG](https://github.com/rhazdon/hugo-theme-hello-friend-ng) and hosting with help of [Github Pages](https://pages.github.com/).
 
-While I have not decided what I want to do with this Blog/Website. I do love exploring random topic that interest me and I want to share some of them with the world. I also want to start posting once every month eventually? (Currently posting once a year). I maintain a list of topic I might post on [here](TODO.md), let me know if you have some interesting topics to there.
+While I have not decided what I want to do with this Blog/Website. I do love exploring random topic that interest me and I want to share some of them with the world. I also want to start posting once every month eventually? (Currently posting once a year). I maintain a list of topic I might post on [here](TODO.md), let me know if you have some interesting topics to add there.
 
 If you are cloning this repo, you will need to make a lot of changes. Also this repo has a lot of my personal info, so I would suggest creating your own repo from scratch while looking at this repo as reference.
 For starters, I suggest looking at [Hugo's QuickStart Guide](https://gohugo.io/getting-started/quick-start/), [this theme repo](https://github.com/rhazdon/hugo-theme-hello-friend-ng), [my config file](config.toml) and [GA workflow file](.github/workflows/main.yml).

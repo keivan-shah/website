@@ -35,4 +35,4 @@ jobs:
           keep_files: false
           user_name: keivan-shah
           user_email: keivan-shah@users.noreply.github.com 
-          # cname: keivan.tech 
+          cname: keivan.in 
