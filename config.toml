@@ -15,7 +15,6 @@ disableRSS     = false
 disableSitemap = false
 
 [taxonomies]
-  author = "Keivan Shah"
   tag      = "tags"
   category = "categories"
 
@@ -35,6 +34,9 @@ disableSitemap = false
   # Default theme "light" or "dark"
   defaultTheme = "dark"
   enableThemeToggle = true
+
+  [params.author]
+    name = "Keivan Shah"
 
   [params.footer]
     trademark = true
