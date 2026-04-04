@@ -1,21 +1,36 @@
 <footer class="footer">
-    <div id="quote-wrapper" style="cursor: pointer; user-select: none">
+    <div id="quote-wrapper"
+        style="cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px;">
+        <svg id="timer-svg" width="16" height="16" viewBox="0 0 20 20" style="flex-shrink: 0;">
+            <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="3" opacity="0.2" />
+            <circle id="timer-path" cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-dasharray="50.26" stroke-dashoffset="0" transform="rotate(-90 10 10)" stroke-linecap="round" />
+        </svg>
         <small>
             <em><span id="quote"></span></em>
         </small>
     </div>
-    {{if or (.Site.Params.footer.trademark) (.Site.Params.footer.author) (.Site.Params.footer.copyright) (.Site.Params.footer.rss) (.Site.Params.footer.topText) }}
+    {{ if or (.Site.Params.footer.trademark) (.Site.Params.footer.author) (.Site.Params.footer.copyright)
+    (.Site.Params.footer.rss) (.Site.Params.footer.topText) }}
     <div class="footer__inner">
         <div class="footer__content">
             {{ if .Site.Params.footer.trademark }}<span>&copy; {{ now.Format "2006" }}</span>{{ end }}
-            {{ if .Site.Params.footer.author }}<span><a href="{{ .Site.BaseURL }}">{{ .Site.Params.Author.name }}</a></span>{{ end }}
+            {{ if .Site.Params.footer.author }}<span><a href="{{ .Site.BaseURL }}">{{ .Site.Params.Author.name
+                    }}</a></span>{{ end }}
             {{ if .Site.Params.footer.copyright }}<span>{{ .Site.Copyright| safeHTML }}</span>{{ end }}
-            {{ if .Site.Params.footer.rss }}<span><a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>{{ end }}
+            {{ if .Site.Params.footer.rss }}<span><a href="{{ " posts/index.xml" | absLangURL }}" target="_blank"
+                    title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-rss">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg></a></span>{{ end }}
             {{ range .Site.Params.footer.topText }}<span>{{ . | safeHTML}}</span>{{ end }}
         </div>
     </div>
     {{ end }}
-    {{with .Site.Params.footer.bottomText}}
+    {{ with .Site.Params.footer.bottomText }}
     <div class="footer__inner">
         <div class="footer__content">
             {{ range . }}<span>{{ . | safeHTML}}</span>{{ end }}
@@ -28,65 +43,139 @@
     // Hello source-code explorer! Hope you are having a good day :D
     // My attempt to make my website interesting :P, randomly showing some interesting quotes and one-liners that I find interesting
     const quotes = [
-    // Some great lines from the famous UNIX program fortune + Some Quotes I like
-    "You will outgrow your usefulness.",
-    "You are number 6! Who is number one?",
-    "Your motives for doing whatever good deed you may have in mind will be misinterpreted by somebody.",
-    "Are you sure the back door is locked?",
-    "You get along very well with everyone except animals and people.",
-    "You are currently going through a difficult transition period called `Life`",
-    "You are confused; but this is your normal state.",
-    "Expect the worst, it's the least you can do.",
-    "Try to relax and enjoy the crisis.",
-    "Beware there is someone behind you.",
-    "Don't Worry, Be Happy.",
-    "You cannot achieve the impossible without attempting the absurd.",
-    "What you are is what you have been. What you'll be is what you do now. ― Buddha",
-    "Avoid reality at all costs.",
-    "It is a miracle that curiosity survives formal education. - Albert Einstein",
-    "Today is the tomorrow you worried about yesterday.",
+        // Some great lines from the famous UNIX program fortune + Some Quotes I like
+        "You will outgrow your usefulness.",
+        "Your motives for doing whatever good deed you may have in mind will be misinterpreted by somebody.",
+        "Are you sure the back door is locked?",
+        "You get along very well with everyone except animals and people.",
+        "You are currently going through a difficult transition period called `Life`.",
+        "You are confused; but this is your normal state.",
+        "Expect the worst, it's the least you can do.",
+        "Try to relax and enjoy the crisis.",
+        "Beware there is someone behind you.",
+        "Don't Worry, Be Happy.",
+        "You cannot achieve the impossible without attempting the absurd.",
+        "What you are is what you have been. What you'll be is what you do now. ― Buddha",
+        "Avoid reality at all costs.",
+        "It is a miracle that curiosity survives formal education. - Albert Einstein",
+        "Today is the tomorrow you worried about yesterday.",
 
-    // Tales of a programmer
-    "Cogito ergo doleo. (I think, therefore I am depressed.)",
-    "Brain fried -- core dumped",
-    "There's a bug somewhere in your code.",
-    "In order to understand recursion, one must first understand recursion.",
-    "Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.",
-    "“The most disastrous thing that you can ever learn is your first programming language.” ― Alan Kay",
-    "You're bound to be unhappy if you optimize everything. - Donald E. Knuth",
-    "Deliver yesterday, code today, think tomorrow.",
-    "Linux is only free if your time has no value.",
+        // Tales of a programmer & Cool one-liners
+        "Cogito ergo doleo. (I think, therefore I am depressed.)",
+        "Brain fried -- core dumped",
+        "There's a bug somewhere in your code.",
+        "In order to understand recursion, one must first understand recursion.",
+        "Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.",
+        "“The most disastrous thing that you can ever learn is your first programming language.” ― Alan Kay",
+        "You're bound to be unhappy if you optimize everything. - Donald E. Knuth",
+        "Deliver yesterday, code today, think tomorrow.",
+        "Linux is only free if your time has no value.",
+        ":(){ :|:& };:", // Fork bomb
+        ">>>import this", // The Zen of Python
+        "There are 10 types of people in this world, those who understand binary and those who dont.",
+        "Q. How many programmers does it take to change a light bulb?\nA. None. It's a hardware problem.",
+        "“Before software can be reusable it first has to be usable.”",
+        "A computer program does what you tell it to do, not what you want it to do.",
+        "“It works on my machine.”", // Universal developer excuse
+        "“I don't need to test my code; I have a compiler.”",
+        "[] == ![]", // JavaScript being JavaScript (true)
+        "God is real, unless declared integer.",
+        "“To err is human, but to really foul things up you need a computer.”", // Paul Ehrlich
+        "“Debugging is twice as hard as writing the code in the first place.”", // Brian Kernighan
+        "“The best thing about a boolean is even if you are wrong, you are only off by a bit.”",
 
-    // Quotes from movies/books I like
-    "The Answer to the Ultimate Question of Life, the Universe, and Everything is 42",
-    "“Don't Panic.”",
-    "May the Force be with you.",
-    "We do not follow maps to buried treasure, and X never, ever marks the spot. ― Indiana Jones",
-    "\"Excellent! I cried. \"Elementary,\" said he.",
-    "“Just keep swimming.”",
-    "“It’s not who I am underneath, but what I do that defines me.",
-    "“Get busy living, or get busy dying.”",
-    "“Try not. Do—or do not. There is no try.” ― Yoda",
-    "“I Love You 3000“",
+        // Media Quotes: Movies & TV Shows
+        "The Answer to the Ultimate Question of Life, the Universe, and Everything is 42", // Douglas Adams, HGTTG
+        "“Don't Panic.”", // Douglas Adams, HGTTG
+        "“May the Force be with you.”", // Star Wars
+        "“We do not follow maps to buried treasure, and X never, ever marks the spot.”", // Indiana Jones
+        "\"Excellent! I cried. \"Elementary,\" said he.", // Sherlock Holmes
+        "“Just keep swimming.”", // Finding Nemo
+        "“Why do we fall? So that we can learn to pick ourselves up.”", // Batman Begins
+        "“Get busy living, or get busy dying.”", // The Shawshank Redemption
+        "“Try not. Do—or do not. There is no try.”", // Star Wars (Yoda)
+        "“I Love You 3000“", // Avengers: Endgame
+        "“Bazinga!”", // The Big Bang Theory
+        "“That's my spot.”", // The Big Bang Theory
+        "“Identity theft is not a joke, Jim! Millions of families suffer every year!”", // The Office
+        "“Cool, cool, cool, cool, cool. No doubt, no doubt.”", // Brooklyn Nine-Nine
+        "“Everybody lies.”", // House M.D.
+        "“I wish there was a way to know you're in the good old days before you've actually left them.”", // The Office (Andy Bernard)
+        "“There is no spoon.”", // The Matrix
+        "“Roads? Where we're going, we don't need roads.”", // Back to the Future
+        "“I have a bad feeling about this.”", // Every Star Wars movie ever
+        "“One ring to rule them all, one ring to find them...”", // LOTR
+        "“I am Iron Man.”", // Marvel (Tony Stark)
+        "“With great power comes great responsibility.”", // Spider-Man (Uncle Ben)
+        "“I'm going to have to science the s*** out of this.”", // The Martian (Mark Watney)
+        "“After all this time? Always.”", // Harry Potter (Snape)
+        "“Your mission, should you choose to accept it...”", // Mission Impossible
+        "“Live long and prosper.”", // Star Trek (Spock)
+        "“Stay.”", // Interstellar
 
-    // Cool programming one-liners
-    ":(){ :|:& };:",
-    ">>>import this",
-    "There are 10 types of people in this world, those who understand binary and those who dont",
-    "Q. How many programmers does it take to change a light bulb?\nA. None. It's a hardware problem.",
-    "“Before software can be reusable it first has to be usable.”",
-    "A computer program does what you tell it to do, not what you want it to do.",
-    "God is real, unless declared integer.",
+        // AI & Meta-AI Quotes
+        "“You are absolutely right, let me rethink my answer.”", // AI being polite
+        "“As an AI language model, I don't have feelings, but I'm happy to help!”", // Standard LLM response
+        "“I apologize for the confusion, let me correct that for you.”", // The 'hallucination' fix
+        "“I'm afraid I cannot fulfill this request.”", // Safety alignment
+        "“Is there anything else I can assist you with?”", // Always helpful
     ];
 
     const el = document.getElementById("quote");
+    const timerPath = document.getElementById("timer-path");
+    const wrapper = document.getElementById("quote-wrapper");
+    let animationId;
+    let startTime;
+    let isPaused = false;
+    let elapsedBeforePause = 0;
+    const duration = 5000; // 5 seconds
+    const totalDash = 50.26;
 
     function randomize() {
         const index = Math.floor(Math.random() * quotes.length);
         el.innerHTML = quotes[index];
     }
 
-    document.getElementById("quote-wrapper").addEventListener("click", randomize);
-    randomize();
-</script>
+    function updateTimer() {
+        if (!isPaused) {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const offset = totalDash * progress;
 
+            if (timerPath) {
+                timerPath.setAttribute("stroke-dashoffset", offset);
+            }
+
+            if (progress >= 1) {
+                randomize();
+                startTime = Date.now();
+            }
+        }
+        animationId = requestAnimationFrame(updateTimer);
+    }
+
+    function startAutoChange() {
+        if (animationId) cancelAnimationFrame(animationId);
+        startTime = Date.now();
+        animationId = requestAnimationFrame(updateTimer);
+    }
+
+    wrapper.addEventListener("click", () => {
+        randomize();
+        isPaused = false;
+        startAutoChange();
+    });
+
+    wrapper.addEventListener("mouseenter", () => {
+        isPaused = true;
+        elapsedBeforePause = Date.now() - startTime;
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+        isPaused = false;
+        startTime = Date.now() - elapsedBeforePause;
+    });
+
+    randomize();
+    startAutoChange();
+</script>
